@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Contact Details - Secret Contacts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#2f4865",
+                    "surface": "#071327",
+                    "inverse-surface": "#d7e2ff",
+                    "on-surface": "#d7e2ff",
+                    "inverse-primary": "#525f71",
+                    "surface-container-high": "#1f2a3f",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#002114",
+                    "on-primary-container": "#768497",
+                    "secondary-fixed-dim": "#afc9ea",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "secondary-fixed": "#d1e4ff",
+                    "on-tertiary-container": "#528f71",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#2e394f",
+                    "on-secondary-fixed": "#001d36",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "secondary": "#afc9ea",
+                    "on-primary-fixed-variant": "#3a4859",
+                    "on-tertiary": "#003824",
+                    "background": "#071327",
+                    "inverse-on-surface": "#263046",
+                    "on-surface-variant": "#c4c6cc",
+                    "tertiary-fixed": "#b1f0ce",
+                    "surface-container-lowest": "#030e22",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#0f1c2c",
+                    "tertiary": "#95d4b3",
+                    "primary-fixed-dim": "#bac8dc",
+                    "on-background": "#d7e2ff",
+                    "surface-container": "#142034",
+                    "tertiary-container": "#001f12",
+                    "on-secondary-fixed-variant": "#2f4865",
+                    "on-secondary-container": "#9eb7d8",
+                    "on-secondary": "#17324d",
+                    "primary-container": "#0d1b2a",
+                    "primary-fixed": "#d6e4f9",
+                    "outline": "#8e9196",
+                    "surface-container-low": "#101b30",
+                    "surface-tint": "#bac8dc",
+                    "surface-dim": "#071327",
+                    "on-primary": "#243141",
+                    "surface-container-highest": "#2a354b",
+                    "surface-variant": "#2a354b",
+                    "primary": "#bac8dc",
+                    "outline-variant": "#44474c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "margin-mobile": "20px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #071327;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(20, 32, 52, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(142, 145, 150, 0.1);
+        }
+        .scrim-bottom {
+            background: linear-gradient(to top, rgba(7, 19, 39, 1) 0%, rgba(7, 19, 39, 0) 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface select-none">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm border-b border-outline-variant/10 flex items-center justify-between px-margin-mobile h-16">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Secret Contacts</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<main class="pt-16 pb-32">
+<!-- Hero Section -->
+<section class="relative w-full h-[397px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-end cinematic close-up portrait of a professional man named John Doe with a confident expression. The lighting is dramatic with deep shadows and cool blue rim lighting, creating a high-security, premium fintech atmosphere. The background is a blurred, dark minimalist architectural space with subtle glass reflections. The overall aesthetic is sophisticated, discreet, and authoritative, matching a dark navy and emerald color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQYpK-33o7Og38NT3RXi--1dPt1wfKU8nCvVv_ZIuom3mwQMeTxb9vJwnPYPLS6kZW0WfndGHRLEwuz0AGF4c8QTKI9O0T4qvWxEss96i5BymAnHumrJzP2Qe_f5qaLmFXtrbuceT8zmQd6qr7OOXhPz8XCMYPsJAljpiK4QYnwe_pjm0WoBQUpgcCw_EIeacSm1wkhSy2e_X7rjg1ybKTYDEmjD9KCZ-bTOeH0qa_uukoQpPjNe0bDg"/>
+<div class="absolute inset-0 scrim-bottom"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Secure Entry</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-on-surface leading-tight">John Doe</h1>
+</div>
+<button class="w-14 h-14 bg-surface-container-highest rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform" id="fav-btn">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="star">star</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="px-margin-mobile mt-lg grid grid-cols-4 gap-sm">
+<button class="flex flex-col items-center gap-2 py-4 rounded-xl bg-primary-container text-primary active:scale-95 transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<span class="font-label-sm text-label-sm">Call</span>
+</button>
+<button class="flex flex-col items-center gap-2 py-4 rounded-xl bg-primary-container text-primary active:scale-95 transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</div>
+<span class="font-label-sm text-label-sm">Message</span>
+</button>
+<button class="flex flex-col items-center gap-2 py-4 rounded-xl bg-primary-container text-primary active:scale-95 transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</div>
+<span class="font-label-sm text-label-sm">Video</span>
+</button>
+<button class="flex flex-col items-center gap-2 py-4 rounded-xl bg-primary-container text-primary active:scale-95 transition-all">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<span class="font-label-sm text-label-sm">Email</span>
+</button>
+</section>
+<!-- Contact Details -->
+<section class="px-margin-mobile mt-xl space-y-md">
+<!-- Phone Card -->
+<div class="glass-card rounded-2xl p-md flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="smartphone">smartphone</span>
+</div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Mobile</p>
+<p class="text-body-lg font-body-lg text-on-surface">+1 (555) 902-1234</p>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Email Card -->
+<div class="glass-card rounded-2xl p-md flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+</div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Personal</p>
+<p class="text-body-lg font-body-lg text-on-surface">john.doe@vault-secure.com</p>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- Address Card -->
+<div class="glass-card rounded-2xl p-md flex items-start gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary mt-1">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Primary Residence</p>
+<p class="text-body-lg font-body-lg text-on-surface">742 Evergreen Terrace, Springfield, IL 62704</p>
+</div>
+<button class="text-outline hover:text-primary transition-colors mt-1">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+</button>
+</div>
+<!-- Notes Card -->
+<div class="glass-card rounded-2xl p-md">
+<div class="flex items-center gap-md mb-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="notes">notes</span>
+</div>
+<p class="text-title-md font-title-md text-on-surface">Notes</p>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Key contact for the Mercury Initiative. Preferred communication via encrypted messaging. Usually available after 6 PM EST. High discretion required for all shared files.
+                </p>
+</div>
+<!-- Management Buttons -->
+<div class="grid grid-cols-2 gap-md pt-lg">
+<button class="flex items-center justify-center gap-2 py-4 rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+<span class="font-title-md text-title-md">Edit</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-4 rounded-xl border border-error/20 text-error hover:bg-error-container/20 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span class="font-title-md text-title-md">Delete</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-outline-variant/10 shadow-[0_-8px_24px_rgba(7,19,39,0.4)] rounded-t-xl flex justify-around items-center h-20 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1">
+<span class="material-symbols-outlined" data-icon="contacts" style="font-variation-settings: 'FILL' 1;">contacts</span>
+<span class="font-label-sm text-label-sm mt-0.5">Contacts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="font-label-sm text-label-sm mt-0.5">Favorites</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm mt-0.5">Settings</span>
+</div>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        const favBtn = document.getElementById('fav-btn');
+        let isFav = false;
+
+        favBtn.addEventListener('click', () => {
+            isFav = !isFav;
+            const icon = favBtn.querySelector('.material-symbols-outlined');
+            if (isFav) {
+                icon.style.fontVariationSettings = "'FILL' 1";
+                icon.classList.add('text-tertiary');
+                icon.classList.remove('text-primary');
+            } else {
+                icon.style.fontVariationSettings = "'FILL' 0";
+                icon.classList.remove('text-tertiary');
+                icon.classList.add('text-primary');
+            }
+        });
+
+        // Simple scroll observer for header transparency
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

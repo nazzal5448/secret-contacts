@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Secret Contacts - Secure Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#2f4865",
+                    "surface": "#071327",
+                    "inverse-surface": "#d7e2ff",
+                    "on-surface": "#d7e2ff",
+                    "inverse-primary": "#525f71",
+                    "surface-container-high": "#1f2a3f",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#002114",
+                    "on-primary-container": "#768497",
+                    "secondary-fixed-dim": "#afc9ea",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "secondary-fixed": "#d1e4ff",
+                    "on-tertiary-container": "#528f71",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#2e394f",
+                    "on-secondary-fixed": "#001d36",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "secondary": "#afc9ea",
+                    "on-primary-fixed-variant": "#3a4859",
+                    "on-tertiary": "#003824",
+                    "background": "#071327",
+                    "inverse-on-surface": "#263046",
+                    "on-surface-variant": "#c4c6cc",
+                    "tertiary-fixed": "#b1f0ce",
+                    "surface-container-lowest": "#030e22",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#0f1c2c",
+                    "tertiary": "#95d4b3",
+                    "primary-fixed-dim": "#bac8dc",
+                    "on-background": "#d7e2ff",
+                    "surface-container": "#142034",
+                    "tertiary-container": "#001f12",
+                    "on-secondary-fixed-variant": "#2f4865",
+                    "on-secondary-container": "#9eb7d8",
+                    "on-secondary": "#17324d",
+                    "primary-container": "#0d1b2a",
+                    "primary-fixed": "#d6e4f9",
+                    "outline": "#8e9196",
+                    "surface-container-low": "#101b30",
+                    "surface-tint": "#bac8dc",
+                    "surface-dim": "#071327",
+                    "on-primary": "#243141",
+                    "surface-container-highest": "#2a354b",
+                    "surface-variant": "#2a354b",
+                    "primary": "#bac8dc",
+                    "outline-variant": "#44474c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "margin-mobile": "20px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #071327;
+        color: #d7e2ff;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .glass-card {
+        background: rgba(20, 32, 52, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(142, 145, 150, 0.1);
+      }
+      .safe-pb {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm border-b border-outline-variant/10 flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Secret Contacts</h1>
+</div>
+<button class="p-base rounded-full hover:bg-surface-container-highest/50 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-margin-mobile max-w-2xl mx-auto space-y-xl">
+<!-- Greeting & Search -->
+<section class="space-y-md">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Hello, User</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your secure vault is active and encrypted.</p>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-tertiary transition-colors">search</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container border-none rounded-xl font-body-lg text-body-lg text-on-surface focus:ring-2 focus:ring-tertiary transition-all placeholder:text-on-surface-variant/50" placeholder="Search contacts..." type="text"/>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-md">
+<div class="glass-card p-md rounded-xl space-y-sm flex flex-col justify-between h-32">
+<span class="material-symbols-outlined text-tertiary">group</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Contacts</p>
+<p class="font-headline-lg text-headline-lg text-on-surface">1,248</p>
+</div>
+</div>
+<div class="glass-card p-md rounded-xl space-y-sm flex flex-col justify-between h-32">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">star</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Favorites</p>
+<p class="font-headline-lg text-headline-lg text-on-surface">42</p>
+</div>
+</div>
+</section>
+<!-- Recent Contacts Horizontal List -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Recent Contacts</h3>
+<button class="font-label-sm text-label-sm text-primary">View All</button>
+</div>
+<div class="flex gap-md overflow-x-auto no-scrollbar pb-xs -mx-margin-mobile px-margin-mobile">
+<!-- Recent Item 1 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs w-20">
+<div class="relative w-14 h-14 rounded-full border-2 border-tertiary p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A professional close-up portrait of a sophisticated executive woman in a dark navy blue blazer. The lighting is soft and cinematic, highlighting her facial features against a blurred, high-tech office background with cool cyan and deep navy tones. The aesthetic is clean, minimalist, and exudes a sense of elite corporate security and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqun54HQfKCTiw_-K3VqSSxjJOuux3_UqVEN2dzoF1wpfiWItGHMec7JCTUIZ1LzeNPgEK6uA2DHXCeDHp3w8tI5CgMsgxsFlD4ElFsoWvCzs9qxsFiEJrFFbM0pFNBTYonVRpRcy4bjU8TOQBOOoQ0371Ig8TKdiT1pkz4Ci9NaA9WozsaFljyKRlzAq-I6Z6lQ1wZmUzx8OddYE0eJGSK7MH4QXqIYmOpQHMg1SpeZ2SoWHs0kndBw"/>
+<div class="absolute -bottom-1 -right-1 bg-surface rounded-full p-0.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center truncate w-full">Eleanor</p>
+</div>
+<!-- Recent Item 2 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs w-20">
+<div class="relative w-14 h-14 rounded-full border-2 border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A striking portrait of a middle-aged male software architect with a short beard and glasses. He is set against an atmospheric dark background with subtle blue neon geometric light projections. The style is ultra-modern and moody, reflecting a high-security digital environment with sharp focus and professional color grading in navy and emerald." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk30a0HLG4DkmuIcCVwi0qe6yqWw0LqSFVgxO81v8LlxMcjSiX6JY7nD2Eq0pSVFXgH91TNIfkGC5DyBXB5W66wnqUXd_Fkzn3H80PiAHlHelm7z7QbFlp8fV88Ts-0Cw-6n9LG_GU0et75VZyvdgpJL5CHlLmOBQ6wP6fgIgrxmv3vMmxoiylxRSetX_Nk_kJEKsXiNwTZp4dTaj9UkUdkNOA90ZqrnLUb76hAWK03MDMR65OGWgJmg"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center truncate w-full">Marcus</p>
+</div>
+<!-- Recent Item 3 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs w-20">
+<div class="relative w-14 h-14 rounded-full border-2 border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A portrait of a young woman with a focused expression, styled as a digital security specialist. Her face is softly illuminated by the glow of an off-screen monitor, creating highlights of cool white and shadows of deep charcoal. The image has a premium, grainy film texture and a minimalist composition typical of high-end fintech branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYSXNWGEo60QHjvanw4H51hF-iWqNx3SRPuv0HDS9BOulZYzbw0aO7h-RAO-8QL7kBlxS9Vzsc6YoW4IDKEpXeyUiSaJO2tuVyS3pJHh6U5i3ROJflpIwUF7MP3yIiallxVjGIcldeXVDd8Jl4TeMSjphqnbQI57tre8KGOgL82M9OgeJWfWkkj8UQmJYXpUGp9EwbZgj4r6pYp7Rs-24d2wbBoYtpZlXHeXjqSsOpI71e53-PVPBM6w"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center truncate w-full">Sienna</p>
+</div>
+<!-- Recent Item 4 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs w-20">
+<div class="relative w-14 h-14 rounded-full border-2 border-tertiary p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A sharp, clean portrait of an older gentleman with distinguished silver hair, dressed in a charcoal grey turtleneck. The setting is a minimalist architectural space with soft, natural lighting. The color palette is composed of muted teals, greys, and deep blues, maintaining a consistent high-end secure atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTcTJFmdjhduwM4Cy13z-LO8loTjOVkm0Zsp8tVCf_s7J7Y71cvNPtJOxLkgKXELiDqAj5lMFcyHROmFPj7j8KK5Er3y652fOQoBKY30568AbPGQzswQsqM8ic0Ki2lMPRks-Y9-deV3Uo1Ybo2nQtCBxlq-v9yHMQOl2DENVoerB4Z0de9-J5VxugUElidCeNHROZO5-kXE_We3i6AR9ASH2hnBOB7Q-W16W-plExRMumlGcrKcPZ6g"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center truncate w-full">Julian</p>
+</div>
+<!-- Recent Item 5 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs w-20">
+<div class="relative w-14 h-14 rounded-full border-2 border-outline-variant p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="A stylish profile of a modern creative professional with a vibrant, confident look. The lighting is high-contrast, using deep shadows and soft rim lights to define the silhouette against a minimalist, dark blue textured wall. The visual style is premium and focuses on high-fidelity details and elegant tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDzr54Iqj0JIN6pXeGRaM7MDL3c1enEqCqseMCLwToN6CXPOE8ZCfHDC4I-OX4rzFVRRc-l7u-AMQIX8r3rL0p-sh1nbwFb-lmgCR6vIB0JksAkDMuhKcqNV8X19TU9P6kNqnhWXtbTtxcY20kDQ_qKeaiN1CQJO7VrZPC8sZixSlUEbhxPdv-oRTOqRg86BXvbsM3k6dnRJHmLnLGjv5MSq6-s9KE3BhhIaQuZT57V2HhX-ifQ1zgLA"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center truncate w-full">Zara</p>
+</div>
+</div>
+</section>
+<!-- Main Contact List -->
+<section class="space-y-md">
+<h3 class="font-title-md text-title-md text-on-surface">All Contacts</h3>
+<div class="space-y-sm">
+<!-- Contact Card 1 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A stunning, high-detail portrait of a cybersecurity expert in a dark room, lit by the subtle blue glow of digital interfaces. The character has an aura of absolute discretion and authority. The overall image uses a sophisticated palette of navy, emerald, and charcoal, emphasizing a state of digital safety and premium minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKdcAFoFkOnmG7DS8GVcOc8OuWA9mOrBOSPIl-SkMRJrvDASegq5WC6ewFUemEOv2dtd2_xgSsMjmuPjJ4Edhh6FFLp552tcczyWdEpswOfFEqSHnc_lbOO-xSup-cIx5ij-7Uajiz8BF0jBygaZKBMMLQRB0qsJtKFed9wLEvBit0CwAYoHHGZhuA1n6ueMNm8emJJ1cSRU9LhQwni8q3BM-1Hyozuznq0Icz78_ML23u5z_Ba45qJw"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary border-2 border-surface rounded-full"></div>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Adrian Thorne</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Encrypted Channel 04</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors">chevron_right</span>
+</div>
+<!-- Contact Card 2 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A professional portrait of a woman in her late 30s with a calm and focused demeanor. She is positioned in a modern, glass-walled environment with soft reflections. The lighting is diffused and professional, creating a tranquil yet authoritative mood. Colors are strictly aligned with the dark mode palette of navy and cool silvers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeifM-oBGUcGNNG01dMkuaQOgx_FTuPk6CYe-2LCrsAkvrrqyxP6cvx85F0ZJC_vbkrRPNi-0ZvluEjpXhpTHnPnH_Kfi8ihB6N2aVSHmLyxJCmWW_yusqo4KISSrASHtuzivCkBoqP6Pr3vlEYoctO5MnDuYrWrDd23cOyuiZZ2cLO0vU1Oq4EFRgQt86z7ULQjqsDe3ALctEhO0U5Z7m8gUwI5JNk7zzn9OH2yJ0cykkRQ-Ht4-DrQ"/>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Beatrice Vane</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Private Mobile</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors">chevron_right</span>
+</div>
+<!-- Contact Card 3 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A portrait of a tech entrepreneur with a thoughtful expression. The background is a minimalist abstract space with soft gradient meshes of deep blue and dark grey. The lighting is high-key and modern, emphasizing clarity and focus. The aesthetic is grounded and intentional, evoke a sense of absolute security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Hgy-z7t5SDEW0JuM80wuQAjMc46gMQtz0Rirjin6hck6SffUJEAV2ZPqDHcwA_uGgfXVepN6bMHOG3H8Sr9Wuni1KY-bHzJ6cWTRqGquiObislURzVHCuznL2DUkEensGy9Z279TWkivuLg2tKvHtA23Fw8-FnBDoFwttxAsBwYzqqlZXZfx9cWIUs9rOOXNdeHU0Wh5Hg3tLR-U2UTUBwN6rzIzsUn7VnIaANDpJpd1w7sQtBZDmQ"/>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Cillian Reed</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Vault ID: 772-X</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors">chevron_right</span>
+</div>
+<!-- Contact Card 4 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A cinematic portrait of a professional woman with a minimalist fashion style, set against a dark architectural background. The image is clean and high-contrast, with focused lighting on the subject's face. The mood is serene and technologically advanced, using a palette of dark navy and emerald green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW78L3ZjqmbDnbBrueC-BoUNVXUhRotxp5mSrL-aZ2SnWto-eu-4Hfb8tFhRgAYQ84eFrOaOVtUe1grKeP2NmCjrvdX3IhDfqwHyqaJtzC89H0DuNXeCvpqFktTL_SuY-u0fq4Ux_kLf1XeU2Ge2vAx6DDqNNiID2MFEfraiqWqKM6DY8B84SA4x4XhaPKRRga6zDSqF2gswdD0MJR9vIcI07ijQyUFVT5dC7KUCbDUB5ZQxfvRDAaYA"/>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Diana Prince</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Work Direct</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-tertiary text-on-tertiary rounded-xl shadow-[0_8px_24px_rgba(7,19,39,0.4)] flex items-center justify-center hover:scale-110 active:scale-90 transition-all duration-200 z-40">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-outline-variant/10 shadow-[0_-8px_24px_rgba(7,19,39,0.4)] flex justify-around items-center h-20 px-4 pb-safe">
+<!-- Contacts Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contacts</span>
+<span class="font-label-sm text-label-sm">Contacts</span>
+</a>
+<!-- Favorites Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</a>
+<!-- Settings Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for search bar glow
+        const searchInput = document.querySelector('input');
+        const searchIcon = searchInput?.previousElementSibling;
+
+        searchInput?.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-tertiary/20');
+        });
+
+        searchInput?.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-tertiary/20');
+        });
+
+        // Tactile feedback simulation
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>
